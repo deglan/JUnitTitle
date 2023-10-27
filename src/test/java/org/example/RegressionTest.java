@@ -2,12 +2,14 @@ package org.example;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+@Tag("regresja")
 public class RegressionTest {
 
     private static WebDriver driver;
@@ -16,6 +18,7 @@ public class RegressionTest {
     public static void setUp() {
         WebDriverManager.chromedriver().setup();
     }
+
 
     @ParameterizedTest(name = "Test tytułu strony: {0}")
     @CsvFileSource(resources = "/test_data.csv", delimiter = ',')
